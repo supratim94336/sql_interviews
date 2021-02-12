@@ -1,1 +1,1 @@
-# sql_interviews
+# SQL tasks from Codility
