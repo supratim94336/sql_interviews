@@ -1,1 +1,1 @@
-# SQL tasks from Codility
+# Popular SQL problems from Codility
