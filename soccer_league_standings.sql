@@ -42,8 +42,7 @@ with cte_host_points as (
       else 0
     end as points
   from matches
- ),
-cte_guest_points as (
+ ), cte_guest_points as (
   select
     guest_team as team,
     guest_goals as goals_for,
@@ -55,8 +54,7 @@ cte_guest_points as (
       else 0
     end as points
   from matches
-),
-cte_total as (
+), cte_total as (
   select
     team,
     goals_for,
@@ -72,24 +70,26 @@ cte_total as (
     goal_diff,
     points
   from cte_guest_points
-),
-stats as (
-	select
-	  team,
-	  coalesce(sum(goals_for), 0) as home_goals,
-	  coalesce(sum(goals_aganist), 0) as away_goals,
-	  coalesce(sum(goal_diff), 0) as goal_diff,
-	  coalesce(sum(points), 0) as points
-	from cte_total
-	group by team
+), stats as (
+  select
+    team,
+    coalesce(sum(goals_for), 0) as home_goals,
+    coalesce(sum(goals_aganist), 0) as away_goals,
+    coalesce(sum(goal_diff), 0) as goal_diff,
+    coalesce(sum(points), 0) as points
+  from cte_total
+  group by team
 )
 select
-	t.team_name as TEAM,
-	st.home_goals as GF,
-	st.away_goals as GA,
-	st.goal_diff as GD,
-	st.points as POINTS
+  t.team_name as TEAM,
+  st.home_goals as GF,
+  st.away_goals as GA,
+  st.goal_diff as GD,
+  st.points as POINTS
 from stats st
 inner join teams t
-	on st.team = t.team_id
-order by st.points, st.goal_diff, st.away_goals, st.home_goals
+  on st.team = t.team_id
+order by st.points,
+  st.goal_diff,
+  st.away_goals,
+  st.home_goals
