@@ -1,5 +1,6 @@
 /*
-MSSQL
+MSSQL:
+print 2&3&5&7 .... &997
 */
 DECLARE @i int=2;
 DECLARE @prime int = 0;
