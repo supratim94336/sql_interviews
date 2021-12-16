@@ -1,1 +1,1 @@
-# Popular SQL problems from Codility
+# Popular SQL problems from Codility & Hackerrank
