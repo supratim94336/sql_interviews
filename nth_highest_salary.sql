@@ -1,3 +1,13 @@
+-- id | salary
+-- ---|--------
+-- 200|--------
+-- 300|--------
+-- 400|--------
+-- 100|--------
+-- 600|--------
+
+-- 3rd highest salary --> 400
+
 CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
 BEGIN
   RETURN (
