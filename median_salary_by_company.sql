@@ -13,7 +13,7 @@ FROM (
             id,
             company, 
             salary, 
-            ROW_NUMBER() OVER (PARTITION BY company ORDER BY salary ASC, company) AS ROWASC, 
+            ROW_NUMBER() OVER (PARTITION BY company ORDER BY salary ASC) AS ROWASC, 
             ROW_NUMBER() OVER (PARTITION BY company ORDER BY salary DESC) AS ROWDESC 
         FROM Employee
     ) X 
