@@ -1,3 +1,14 @@
+-- structure of the table
+-- id | position | salary
+-- -----------------------
+--   1|    junior|  10000
+--   2|    junior|  10000
+--   3|    junior|  10000
+--   4|    senior|  20000
+--   5|    senior|  20000
+
+-- problem: hire as many senior developers first and then junior developers, where budget is 50000
+
 -- create a table
 DROP TABLE IF EXISTS candidates;
 CREATE TABLE candidates (
@@ -13,6 +24,7 @@ INSERT INTO candidates VALUES (3, 'junior', 10000);
 INSERT INTO candidates VALUES (4, 'senior', 20000);
 INSERT INTO candidates VALUES (5, 'senior', 20000);
 
+-- solution
 WITH salary_run_total AS (
     SELECT
         c.*,
